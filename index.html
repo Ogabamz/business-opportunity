@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Executive Luxury Reset - Application</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f5f1;
+            color: #3d3d3d;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8b7355 0%, #6b5744 100%);
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro-section {
+            background: #fff;
+            padding: 3rem;
+            margin: -2rem auto 3rem;
+            border-radius: 2px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .intro-section p {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            color: #5a5a5a;
+        }
+
+        .intro-section .highlight {
+            background: #f8f5f1;
+            padding: 1.5rem;
+            border-left: 3px solid #8b7355;
+            margin: 2rem 0;
+        }
+
+        .highlight-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .highlight-item strong {
+            display: block;
+            color: #8b7355;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #e8dfd5 0%, #d4c4b0 100%);
+            border: 2px dashed #b8a791;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #7a6e5d;
+            font-style: italic;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .form-section {
+            background: #fff;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-radius: 2px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #3d3d3d;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-section .section-desc {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            color: #3d3d3d;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #d4c4b0;
+            background: #fefefe;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #8b7355;
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #8b7355;
+        }
+
+        .submit-section {
+            background: #fff;
+            padding: 3rem;
+            text-align: center;
+            border-radius: 2px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #8b7355 0%, #6b5744 100%);
+            color: #fff;
+            padding: 1.2rem 4rem;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 87, 68, 0.3);
+        }
+
+        .submit-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .intro-section,
+            .form-section,
+            .submit-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .highlight-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>THE EXECUTIVE LUXURY RESET</h1>
+        <div class="subtitle">12 Private Slots · Abuja · December 2025</div>
+    </div>
+
+    <div class="container">
+        <div class="intro-section">
+            <p>A private, one-day luxury wellness retreat designed to restore your energy, clarity, and vitality before
+                2026.</p>
+
+            <p>This experience is strictly limited to 12 guests. Each application is reviewed privately by our team, and
+                approved guests receive a dedicated concierge for scheduling and preparation.</p>
+
+            <div class="highlight">
+                <div class="highlight-row">
+                    <div class="highlight-item">
+                        <strong>Location</strong>
+                        <span>Private Executive Suite, Abuja</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>Investment</strong>
+                        <span>₦700,000 (all-inclusive)</span>
+                    </div>
+                    <div class="highlight-item">
+                        <strong>Format</strong>
+                        <span>One client per day</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-placeholder" style="padding: 0; border: none;">
+                <img src="images/hero_spa_room.png"
+                    alt="Luxury spa treatment room with ambient lighting, plush robes, and serene atmosphere"
+                    style="width: 100%; height: auto; border-radius: 2px; display: block;">
+            </div>
+        </div>
+
+        <form id="applicationForm" action="https://formspree.io/f/xjkayvqr" method="POST">
+            <!-- SECTION 1 -->
+            <div class="form-section">
+                <h2>Personal Details</h2>
+                <p class="section-desc">Your information is handled with complete confidentiality</p>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number (WhatsApp) *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Method of Contact *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="contactWhatsApp" name="contact" value="whatsapp" required>
+                            <label for="contactWhatsApp" style="margin: 0; font-weight: 400;">WhatsApp</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="contactPhone" name="contact" value="phone">
+                            <label for="contactPhone" style="margin: 0; font-weight: 400;">Phone call</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="contactEmail" name="contact" value="email">
+                            <label for="contactEmail" style="margin: 0; font-weight: 400;">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-placeholder" style="padding: 0; border: none;">
+                <img src="images/reception_area.png" alt="Elegant reception area with fresh orchids and warm lighting"
+                    style="width: 100%; height: auto; border-radius: 2px; display: block;">
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="form-section">
+                <h2>Scheduling Preferences</h2>
+                <p class="section-desc">Select your preferred dates and times</p>
+
+                <div class="form-group">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem;">
+                        <label style="margin-bottom: 0;">Which date(s) work best for you? *</label>
+                        <span id="availability-note"
+                            style="font-size: 0.85rem; color: #8b7355; font-style: italic; font-weight: 500;"></span>
+                    </div>
+                    <div class="checkbox-group" id="dynamic-dates-container">
+                        <!-- Dates will be injected here by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What time window do you prefer? *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="timeMorning" name="time" value="morning" required>
+                            <label for="timeMorning" style="margin: 0; font-weight: 400;">Morning session (10am
+                                start)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="timeAfternoon" name="time" value="afternoon">
+                            <label for="timeAfternoon" style="margin: 0; font-weight: 400;">Afternoon session
+                                (3pm
+                                start)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="timeFlexible" name="time" value="flexible">
+                            <label for="timeFlexible" style="margin: 0; font-weight: 400;">Flexible</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-placeholder" style="padding: 0; border: none;">
+                <img src="images/treatment_room_diffuser.png"
+                    alt="Tranquil treatment room with essential oil diffuser and natural light"
+                    style="width: 100%; height: auto; border-radius: 2px; display: block;">
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="form-section">
+                <h2>Custom Experience Preparation</h2>
+                <p class="section-desc">Help us personalize your luxury retreat</p>
+
+                <div class="form-group">
+                    <label for="intention">What is your primary intention for booking the Executive Reset?
+                        *</label>
+                    <textarea id="intention" name="intention"
+                        placeholder="Examples: stress relief, clarity, rejuvenation, burnout recovery, pre-2026 planning, privacy, etc."
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What areas of your wellbeing would you like us to prioritize? *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="relaxation" name="wellbeing" value="relaxation">
+                            <label for="relaxation" style="margin: 0; font-weight: 400;">Deep relaxation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="clarity" name="wellbeing" value="clarity">
+                            <label for="clarity" style="margin: 0; font-weight: 400;">Mental clarity</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="renewal" name="wellbeing" value="renewal">
+                            <label for="renewal" style="margin: 0; font-weight: 400;">Physical renewal</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="detox" name="wellbeing" value="detox">
+                            <label for="detox" style="margin: 0; font-weight: 400;">Detox / internal
+                                refresh</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="energy" name="wellbeing" value="energy">
+                            <label for="energy" style="margin: 0; font-weight: 400;">Energy restoration</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="everything" name="wellbeing" value="everything">
+                            <label for="everything" style="margin: 0; font-weight: 400;">A bit of
+                                everything</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferences">Any preferences or sensitivities we should be aware of?</label>
+                    <textarea id="preferences" name="preferences"
+                        placeholder="Scents, oils, massage intensity, allergies, mobility considerations..."></textarea>
+                </div>
+            </div>
+
+            <div class="image-placeholder" style="padding: 0; border: none;">
+                <img src="images/spa_products.png"
+                    alt="Close-up of luxury spa products, essential oils, and natural elements"
+                    style="width: 100%; height: auto; border-radius: 2px; display: block;">
+            </div>
+
+            <!-- SECTION 4 -->
+            <div class="form-section">
+                <h2>Concierge & Confidentiality</h2>
+                <p class="section-desc">We prioritize your privacy and convenience</p>
+
+                <div class="form-group">
+                    <label>Do you require a discreet / no-public-presence arrival? *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="discreetYes" name="discreet" value="yes" required>
+                            <label for="discreetYes" style="margin: 0; font-weight: 400;">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="discreetNo" name="discreet" value="no">
+                            <label for="discreetNo" style="margin: 0; font-weight: 400;">No</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="discreetDiscuss" name="discreet" value="discuss">
+                            <label for="discreetDiscuss" style="margin: 0; font-weight: 400;">Prefer to discuss
+                                privately</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Would you like a dedicated assistant to handle scheduling with your PA/office?
+                        *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="assistantYes" name="assistant" value="yes" required>
+                            <label for="assistantYes" style="margin: 0; font-weight: 400;">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="assistantNo" name="assistant" value="no">
+                            <label for="assistantNo" style="margin: 0; font-weight: 400;">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- SECTION 5 -->
+            <div class="form-section">
+                <h2>Confirmation</h2>
+                <p class="section-desc">Final details to complete your application</p>
+
+                <div class="form-group">
+                    <label for="urgency">How soon would you like to secure your slot? *</label>
+                    <select id="urgency" name="urgency" required>
+                        <option value="">Select an option</option>
+                        <option value="immediately">Immediately</option>
+                        <option value="24hours">Within 24 hours</option>
+                        <option value="week">Within this week</option>
+                        <option value="exploring">Just exploring</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="additional">Anything else you'd like us to know before your private concierge
+                        reaches
+                        out?</label>
+                    <textarea id="additional" name="additional"></textarea>
+                </div>
+            </div>
+
+            <!-- SUBMIT -->
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Submit Application</button>
+                <p class="submit-note">Your application will be reviewed privately within 24 hours</p>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>©2025 Olivianaturals Wellness · All Rights Reserved</p>
+        <p style="margin-top: 0.5rem;">This experience is extremely limited — applications are processed in order of
+            submission.</p>
+    </div>
+
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = this;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show confirmation message
+                    const submitSection = document.querySelector('.submit-section');
+                    submitSection.innerHTML = `
+                        <div style="padding: 3rem 2rem;">
+                            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #8b7355; margin-bottom: 1.5rem;">Thank You.</h2>
+                            <p style="font-size: 1.1rem; margin-bottom: 1rem; color: #3d3d3d;">Your application has been received.</p>
+                            <p style="margin-bottom: 1rem; color: #5a5a5a;">You will be contacted privately within 24 hours by your concierge to confirm your date, answer any questions, and complete your booking.</p>
+                            <p style="font-style: italic; color: #888; margin-top: 2rem;">This experience is extremely limited — applications are processed in order of submission.</p>
+                        </div>
+                    `;
+
+                    // Scroll to confirmation
+                    submitSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    alert('Oops! There was a problem submitting your form. Please try again.');
+                }
+            }).catch(error => {
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            });
+        });
+
+        // Dynamic Date Logic
+        document.addEventListener('DOMContentLoaded', function () {
+            // Define the available dates for the 2025 season
+            // Format: YYYY-MM-DD
+            const allDates = [
+                { id: 'dec12', label: 'December 12', value: '2025-12-12' },
+                { id: 'dec13', label: 'December 13', value: '2025-12-13' },
+                { id: 'dec14', label: 'December 14', value: '2025-12-14' },
+                { id: 'dec19', label: 'December 19', value: '2025-12-19' },
+                { id: 'dec20', label: 'December 20', value: '2025-12-20' },
+                { id: 'dec21', label: 'December 21', value: '2025-12-21' },
+                { id: 'dec25', label: 'December 25', value: '2025-12-25' },
+                { id: 'dec26', label: 'December 26', value: '2025-12-26' },
+                { id: 'dec27', label: 'December 27', value: '2025-12-27' },
+                { id: 'dec28', label: 'December 28', value: '2025-12-28' }
+            ];
+
+            const today = new Date();
+            // Set time to 00:00:00 to compare dates properly (so today shows up if it matches)
+            today.setHours(0, 0, 0, 0);
+
+            const container = document.getElementById('dynamic-dates-container');
+            const noteContainer = document.getElementById('availability-note');
+            let availableCount = 0;
+
+            allDates.forEach(dateObj => {
+                const dateParts = dateObj.value.split('-');
+                const slotDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+
+                // Only show dates that are today or in the future
+                if (slotDate >= today) {
+                    availableCount++;
+
+                    const div = document.createElement('div');
+                    div.className = 'checkbox-item';
+
+                    const input = document.createElement('input');
+                    input.type = 'checkbox';
+                    input.id = dateObj.id;
+                    input.name = 'dates';
+                    input.value = dateObj.id; // Using the ID string as value to match Formspree preferences
+
+                    const label = document.createElement('label');
+                    label.htmlFor = dateObj.id;
+                    label.style.margin = '0';
+                    label.style.fontWeight = '400';
+                    label.textContent = dateObj.label;
+
+                    div.appendChild(input);
+                    div.appendChild(label);
+                    container.appendChild(div);
+                }
+            });
+
+            // Update scarcity message
+            if (availableCount > 0) {
+                noteContainer.textContent = `Limited Availability: Only ${availableCount} dates remaining`;
+            } else {
+                noteContainer.textContent = `Fully Booked for 2025`;
+                // Optional: Disable form or show waitlist message
+            }
+        });
+    </script>
+</body>
+
+</html>
